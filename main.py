@@ -28,10 +28,6 @@ X_train, X_test, y_train, y_test = train_test_split(df.drop({'Price','Product_id
 model = RandomForestRegressor(n_estimators=100, random_state=42)
 model.fit(X_train, y_train)
 
-# Evaluate the model on the training set
-y_pred = model.predict(X_train)
-mse = mean_squared_error(y_train, y_pred)
-
-# Print the MSE and model parameters
-print("MSE on training set: ", mse)
-print("Model parameters: ", model.get_params())
+# Evaluate the model on the testing set and print the R2 score
+r2 = model.score(X_test, y_test)
+print("R2 score on testing set: ", r2)
