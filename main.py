@@ -1,14 +1,15 @@
 import pandas as pd
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import mean_squared_error
+
 
 # Load the dataset into a pandas dataframe
-df = pd.read_csv('Cellphone.csv')
+df = pd.read_csv('data.csv')
 
+df.drop('Unnamed: 0',axis=1,inplace=True)
 # Check for missing values
 print(df.isnull().sum())
-
+print(df)
 # Replace missing values with the mean
 df.fillna(df.mean(), inplace=True)
 
@@ -22,7 +23,7 @@ corr_matrix = df.corr()
 print(corr_matrix['Price'].sort_values(ascending=False))
 
 # Split the dataset into training and testing sets
-X_train, X_test, y_train, y_test = train_test_split(df.drop({'Price','Product_id'}, axis=1), df['Price'], test_size=0.2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(df.drop({'Price','Brand me'}, axis=1), df['Price'], test_size=0.2, random_state=42)
 
 # Train a random forest regression model on the training set
 model = RandomForestRegressor(n_estimators=100, random_state=42)
