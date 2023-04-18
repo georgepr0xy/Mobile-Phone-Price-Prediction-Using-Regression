@@ -5,5 +5,4 @@
 ### Linear Regression - 96.14
 ### Lasso Regression - 96.13
 
-### Dataset Link :- https://www.kaggle.com/datasets/mohannapd/mobile-price-prediction
 ### Streamlit Link :-
